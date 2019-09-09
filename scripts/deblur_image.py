@@ -26,9 +26,9 @@ def deblur(weight_path, input_dir, output_dir):
 
 
 @click.command()
-@click.option('--weight_path', help='Model weight')
-@click.option('--input_dir', help='Image to deblur')
-@click.option('--output_dir', help='Deblurred image')
+@click.option('--weight_path', default='../generator.h5', help='Model weight')
+@click.option('--input_dir', default='../input-image', help='Image to deblur')
+@click.option('--output_dir', default='../output-image', help='Deblurred image')
 def deblur_command(weight_path, input_dir, output_dir):
     return deblur(weight_path, input_dir, output_dir)
 

@@ -6,6 +6,7 @@ from keras.engine.topology import Layer
 from keras.layers import Input, Conv2D, Activation, BatchNormalization
 from keras.layers.merge import Add
 from keras.utils import conv_utils
+from keras.backend import common as K
 from keras.layers.core import Dropout
 
 
@@ -114,7 +115,7 @@ class ReflectionPadding2D(Layer):
                  data_format=None,
                  **kwargs):
         super(ReflectionPadding2D, self).__init__(**kwargs)
-        self.data_format = conv_utils.normalize_data_format(data_format)
+        self.data_format = K.normalize_data_format(data_format)
         if isinstance(padding, int):
             self.padding = ((padding, padding), (padding, padding))
         elif hasattr(padding, '__len__'):
